@@ -12,6 +12,7 @@ public class QuizActivity extends Activity {
 
 	private Button mTrueButton;
 	private Button mFalseButton;
+	private Button mPrevButton;
 	private Button mNextButton;
 	private TextView mQuestionTextView;
 	
@@ -81,6 +82,18 @@ public class QuizActivity extends Activity {
 
 				checkAnswer(false);
 
+			}
+		});
+		
+		/* CHALLENGE: ADD A PREVIOUS BUTTON */
+		mPrevButton = (Button)findViewById(R.id.prev_button);
+		mPrevButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+				updateQuestion();
+				
 			}
 		});
 		
