@@ -92,8 +92,14 @@ public class QuizActivity extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
-				updateQuestion();
+				if((mCurrentIndex - 1) < 0){
+					mCurrentIndex = mQuestionBank.length - 1;
+					updateQuestion();
+				}
+				else{
+					mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+					updateQuestion();
+				}
 				
 			}
 		});
