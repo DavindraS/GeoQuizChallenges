@@ -50,7 +50,18 @@ public class QuizActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz);
 		
+		/* CHALLENGE: ADD A LISTENER TO THE TEXTVIEW */
 		mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
+		mQuestionTextView.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+				updateQuestion();
+				
+			}
+		});
 		updateQuestion();
 		
 		mTrueButton = (Button)findViewById(R.id.true_button);
